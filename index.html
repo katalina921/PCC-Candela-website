@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>PCC Candela</title>
+<meta name="description" content="Candela">
+<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="wrap">
+
+        <div id="arrow-left" class="arrow"></div>
+        <div id="slider">
+            <div class="slide slide1">
+
+                <div class="slide-content">
+
+                    <span>We are PCC Candela</span>
+                </div>
+
+            </div>
+            <div class="slide slide2">
+
+                <div class="slide-content">
+
+                    <span>Never too late to learn how to dance!</span>
+                </div>
+
+            </div>
+
+            <div class="slide slide3">
+
+                <div class="slide-content">
+
+                    <span> So join us today!</span>
+                    <form action="http://eepurl.com/dp3CdH">
+                        <button type="submit" value="Go to signup">sign up</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="arrow-right" class="arrow"></div>
+    </div>
+
+    <script>
+        let sliderImages = document.querySelectorAll('.slide'),
+            arrowLeft = document.querySelector('#arrow-left'),
+            arrowRight = document.querySelector('#arrow-right'),
+            current = 0;
+        // clear all images     
+        function reset() {
+            for (let i = 0; i < sliderImages.length; i++) {
+
+                sliderImages[i].style.display = 'none';
+            }
+
+        }
+
+        //init slider
+        function startSlide() {
+
+            reset();
+            sliderImages[0].style.display = 'block';
+        }
+
+        //show prev
+        function slideLeft() {
+            reset();
+            sliderImages[current - 1].style.display = 'block';
+            current--;
+        }
+
+        //show next
+
+        function slideRight() {
+
+            reset();
+            sliderImages[current + 1].style.display = 'block';
+            current++;
+        }
+        //right arrow click
+        arrowRight.addEventListener('click', function() {
+
+            if (current == sliderImages.length - 1) {
+                current = -1;
+
+            }
+            slideRight();
+        });
+
+
+        //left arrow click
+        arrowLeft.addEventListener('click', function() {
+
+            if (current == 0) {
+                current = sliderImages.length;
+
+            }
+            slideLeft();
+        });
+
+        startSlide();
+    </script>
+</body>
+
+</html>
